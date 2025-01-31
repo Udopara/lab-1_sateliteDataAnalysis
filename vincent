@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Define input and output files
+input_file="raw_data/satelite_temperature_data.csv"
+output_file="analyzed_data/highest_temp.csv"
+
+# Create the output directory if it doesn't exist
+mkdir -p analyzed_data
+
+# Extract the top 10 highest temperatures from the CSV file
+# Assuming the temperature is in a specific column, e.g., column 2
+# This command sorts the temperatures in descending order and takes the top 10
+# Adjust the column number in -f2 to match the actual temperature column in your CSV
+
+tail -n +2 "$input_file" | sort -t, -k2,2nr | head -n 10 > "$output_file"
