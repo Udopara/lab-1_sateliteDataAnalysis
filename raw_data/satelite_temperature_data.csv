@@ -5999,3 +5999,7 @@ Algeria,July,21.43,20.43
 Eritrea,June,41.38,39.86
 Zambia,July,28.48,74.13
 Comoros,May,20.77,42.68
+
+#!/bin/bash
+mkdir -p lab-1_sateliteDataAnalysis/analyzed_data/humidity_data_Guinea-Bissau.csv
+grep "Guinea-Bissau" satelite_temperature_data.csv | sort -t, -k4 -nr > analyzed_data/humidity_data_Guinea-Bissau.csv
