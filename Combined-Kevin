@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# I Kevin combined Vincet and Pauls codes into one script
 # Define input and output file paths
 input_file="raw_data/satelite_temperature_data.csv"
 temp_output_file="analyzed_data/highest_temp.csv"
