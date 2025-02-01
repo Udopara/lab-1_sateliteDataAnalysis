@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 # Define input and output files
 input_file="raw_data/satelite_temperature_data.csv"
 output_file="analyzed_data/highest_temp.csv"
