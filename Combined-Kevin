@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Define input and output file paths
+input_file="raw_data/satelite_temperature_data.csv"
+temp_output_file="analyzed_data/highest_temp.csv"
+humidity_output_file="analyzed_data/humidity_data_Kenya.csv"
+country_name="Kenya"
+
+# Create the analyzed_data directory if it doesn't exist
+mkdir -p analyzed_data
+
+# Extract the top 10 highest temperatures from the CSV file
+# Assuming the temperature is in a specific column, e.g., column 3
+# This command sorts the temperatures in descending order and takes the top 10
+tail -n +2 "$input_file" | sort -t, -k3,3nr | head -n 10 > "$temp_output_file"
+
+# Extract data for the specified country, sort by humidity in descending order, and save to the output file
+tail -n +2 "$input_file" | grep "$country_name" | sort -t, -k4,4nr > "$humidity_output_file"
+
+# Notify the user of completion
+echo "Top 10 highest temperatures have been saved in $temp_output_file"
+echo "Humidity data for ${country_name} has been saved in $humidity_output_file"
+
